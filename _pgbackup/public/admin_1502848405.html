@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin panel</title>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="well well-lg">
+    <h1 class="text-center">BD ADMISSION ADMIN PANEL</h1>
+</div>
+<div class="container" style="height:50%">
+    <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 panel-default">
+        <ul class="list-group" id="versityList">
+        </ul>
+        <div class="form-group">
+            <input type="text" class="form-control" id="versity_name" placeholder="input versity name">
+            <div class="checkbox">
+                <label class="control-label">
+                    <input type="checkbox" value="" id="is_private">is Private
+                </label>
+            </div>
+            <input type="text" class="form-control" placeholder="logo link" style="margin-bottom:10px" id="logo_link">
+            <button type="button" class="btn btn-default btn-block" id="add_versity">  Add University
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-3 col-xs-3 col-md-3 col-lg-3">
+        <ul class="list-group" id="sub-category">
+        </ul>
+        <div class="form-group">
+            <input type="text" class="form-control" id="sub-category-name" placeholder="Input sub category name" style="margin-bottom:10px">
+            <button type="button" class="btn btn-default btn-block" id="add-category-btn">Add Sub category</button>
+        </div>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div id="summernote">
+            <p></p>
+        </div>
+        <button type="button" class="btn btn-default btn-block" id="data-details-btn">Add Or Update</button>
+    </div>
+</div>
+<div class="container" style="margin-top:20px;height:50%">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="margin-bottom:20px">
+        <div class="panel panel-info">
+            <div class="panel-heading text-center">
+                <h4>Versity Controll Panel</h4>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading text-center">Versity panel</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="control-label" for="formInput17">Field label</label>
+                                <select id="versity_controll_panel_list" class="form-control">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="versity_controll_panel_name_input" placeholder="Versity Name">
+                            </div>
+                            <div class="checkbox">
+                                <label class="control-label">
+                                    <input type="checkbox" value="versity_controll_panel_is_private">is Private
+                                </label>
+                            </div>
+                            <button type="button" class="btn btn-success" style="margin-bottom:10px" id="versity_controll_panel_update_versity_name_btn">Update Versity Name</button>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="versity_controll_panel_logo_link" placeholder="input logo link">
+                            </div>
+                            <button type="button" class="btn btn-success" id="versity_controll_panel_update_versity_logo_link_btn">Update Versity Logo Link</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="panel panel-success">
+                        <div class="panel-heading text-center">Versity Sub panel</div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label class="control-label" for="formInput705">Select versity</label>
+                                <select id="versity_sub_controll_panel_versity_list" class="form-control">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="formInput705">Select sub category</label>
+                                <select id="versity_sub_controll_panel_sub_list" class="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="versity_sub_controll_panel_category_name" placeholder="Subcategory Name">
+                            </div>
+                            <button type="button" class="btn btn-success" style="margin-bottom:10px" versity_sub_controll_panel_sub_categoty_update_btn>Update Sub Category Name</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="height:50%">
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="panel panel-success">
+            <div class="panel-heading text-center">Notice board</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label" for="versity_list_notice">Versity Name</label>
+                    <select id="versity_list_notice" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="notification_type">type</label>
+                    <select id="notification_type" class="form-control">
+                        <option value="date_announcement_notice">Date Announce notice</option>
+                        <option value="result_notice">Result Notice</option>
+                        <option value="other_notice">Other notice</option>
+                    </select>
+                </div>
+                <input type="text" class="form-control" placeholder="Input notice" style="margin-bottom:10px" id="notice_input">
+                <button type="button" class="btn btn-primary" id="add_notice">Add Notice</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<!-- include summernote css/js-->
+<link href="css/summernote.css" rel="stylesheet">
+<script src="js/summernote.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+    var versityMap={};
+    var categoryMap={};
+    var categoryKeyMap={};
+    var selectedVersity='';
+    var selectedSubcategory='';
+    String.prototype.replaceAll = function (find, replace) {
+        var str = this;
+        return str.replace(new RegExp(find.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'g'), replace);
+    };
+    $(document).ready(function() {
+        $('#summernote').summernote();
+
+        $(document).on('click','.list-group-item',function(e){
+            var previous = $(this).closest(".list-group").children(".active");
+            previous.removeClass('active'); // previous list-item
+            $(e.target).addClass('active'); // activated list-item
+
+            var type=$(this).attr('type');
+            l(type);
+            if(type=='versity'){
+                l("versity enter");
+                selectedVersity=$(this).html();
+                database.ref().child('sub-category/'+selectedVersity).on("value", function(snapshot) {
+                    $('#sub-category').html('');
+                    snapshot.forEach(function(childSnapshot) {
+                        var key = childSnapshot.key;
+                        var childData = childSnapshot.val();
+
+                        categoryMap[selectedVersity+'/'+key]=childData;
+                        categoryKeyMap[selectedVersity+'/'+childData.name]=key;
+
+                        l("sub---- > "+childData);
+                        $('#sub-category').append('<li class="list-group-item" type="category")>'+childData.name+'</li>');
+                    });
+                });
+            }else{
+                l("subcategory enter enter");
+                selectedSubcategory=$(this).html();
+
+                $('#summernote').summernote('code','');
+                database.ref().child('sub-category-details/'+selectedVersity+'/'+categoryKeyMap[selectedVersity+'/'+selectedSubcategory]).once("value", function(snapshot) {
+
+                    snapshot.forEach(function(childSnapshot) {
+                        var key = childSnapshot.key;
+                        var childData = childSnapshot.val();
+                        console.log(childData);
+                        $('#summernote').summernote('code',childData);
+
+                    });
+                });
+
+            }
+
+
+
+
+        });
+
+        /*$('#versity_sub_controll_panel_versity_list').on('change', 'select', function (e) {
+            var val = $(e.target).val();
+            //var text = $(e.target).find("option:selected").text(); //only time the find is required
+            //var name = $(e.target).attr('name');
+            //l(val+" "+text+" "+name);
+            l(val);
+        });*/
+
+        $('#versity_sub_controll_panel_versity_list').on('change', function () {
+            var selectVal = $("#versity_sub_controll_panel_versity_list option:selected").val();
+
+            database.ref().child('sub-category/'+selectVal).once("value", function(snapshot) {
+                $('#versity_sub_controll_panel_sub_list').html('');
+                snapshot.forEach(function(childSnapshot) {
+                    var key = childSnapshot.key;
+                    var childData = childSnapshot.val();
+
+                    categoryMap[selectedVersity+'/'+key]=childData;
+                    categoryKeyMap[selectedVersity+'/'+childData.name]=key;
+
+                    $('#versity_sub_controll_panel_sub_list').append('<option value="'+childData.name+'">'+childData.name+'</option>');
+                });
+            });
+
+        });
+
+
+    });
+
+    var config = {
+        apiKey: "AIzaSyAl6ZYjDZrm5keu9RhmGtGvUSaxmNqkt4E",
+        authDomain: "admisionbd.firebaseapp.com",
+        databaseURL: "https://admisionbd.firebaseio.com",
+        projectId: "admisionbd",
+        storageBucket: "admisionbd.appspot.com",
+        messagingSenderId: "77384388218"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+    $('#data-details-btn').on('click',function(e){
+        var value=$('#summernote').summernote('code');
+        if(categoryKeyMap[selectedVersity+'/'+selectedSubcategory]==undefined){
+            alert("Please select a versity and subcategory to add details...");
+            return;
+        }
+        $('#summernote').summernote('code','');
+        database.ref().child('sub-category-details/'+selectedVersity+'/'+categoryKeyMap[selectedVersity+'/'+selectedSubcategory]).set({
+            data:value
+        });
+    });
+
+    $('#add_notice').on('click',function(e){
+        var versityName=$('#versity_list_notice').val();
+        var typeNotice=$('#notification_type').val();
+        var noticeVal=$('#notice_input').val();
+        addNotice(versityName,typeNotice,noticeVal);
+    });
+
+    $('#add_versity').on('click',function(e){
+        var value=$('#versity_name').val();
+        $('#versity_name').val('');
+        var logoLink=$('#logo_link').val();
+        addVersity(value,logoLink,$('#is_private').is(":checked"));
+    });
+    $('#add-category-btn').on('click',function (e) {
+        var value=$('#sub-category-name').val();
+        if(selectedVersity===''){
+            alert("select a versity...");
+            return;
+        }
+        $('#sub-category-name').val('');
+        addCategory(selectedVersity,value);
+    });
+    function addVersity(versityName,logoLink,isPrivate) {
+        if(isPrivate){
+            database.ref().child('versity').push({
+                name:versityName,
+                isPrivate:isPrivate,
+                logoLink:logoLink
+            });
+        }else{
+            database.ref().child('versity').push({
+                name:versityName,
+                isPrivate:isPrivate,
+                logoLink:logoLink
+            });
+        }
+
+    }
+
+    function addCategory(versityName,categoryName) {
+        var key=database.ref().child('sub-category/'+versityName).push();
+        database.ref().child('sub-category/'+versityName+'/'+key.key).set({'name':categoryName,url:'versityname='+selectedVersity.replaceAll(' ','_')+'&key='+key.key});
+
+    }
+    function updateCategory(versityName,newCategoryName,key) {
+        var key=database.ref().child('sub-category/'+versityName+"/"+key).set({
+            name:newCategoryName,
+            url:'versityname='+versityName+'&key='+key
+        });
+    }
+    database.ref().child('versity')./*orderByChild('isPrivate').equalTo(true).*/on("value", function(snapshot) {
+        $('#versityList').html('');
+        snapshot.forEach(function(childSnapshot) {
+            var key = childSnapshot.key;
+            var childData = childSnapshot.val();
+            versityMap[childData.name]=childData;
+            $('#versityList').append('<li class="list-group-item" type="versity">'+childData.name+'</li>');
+            $('#versity_list_notice').append('<option value="'+childData.name+'">'+childData.name+'</option>');
+            $('#versity_controll_panel_list').append('<option value="'+childData.name+'">'+childData.name+'</option>');
+            $('#versity_sub_controll_panel_versity_list').append('<option value="'+childData.name+'">'+childData.name+'</option>');
+        });
+    });
+
+
+    function addNotice(versityName,notice_type,notice) {
+        database.ref().child('notice/versity-type/'+versityName+'/'+notice_type).push({
+            notice:notice
+        });
+        database.ref().child('notice/versity/'+versityName).push({
+            notice:notice
+        });
+        database.ref().child('notice/all-type/'+notice_type).push({
+            notice:notice
+        });
+        database.ref().child('notice/all').push({
+            notice:notice
+        });
+        alert("succesfully added notice");
+    }
+
+    function l(data) {
+        console.log(data);
+    }
+</script>
+</body>
+</html>
