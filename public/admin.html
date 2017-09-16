@@ -320,6 +320,8 @@
             $('#versity_controll_panel_list').append('<option value="'+childData.name+'">'+childData.name+'</option>');
             $('#versity_sub_controll_panel_versity_list').append('<option value="'+childData.name+'">'+childData.name+'</option>');
 
+            //giveVersityPriority(childData.name,/*versityMap[childData.name].priority*/300);
+
         });
     });
 
@@ -348,6 +350,15 @@
     function updateLastUpdateTimeByVersity(versityName) {
         var time=new Date().getTime();
         versityMap[versityName].updateTime=time;
+        var key=versityNameToKey[versityName];
+        database.ref().child('versity/'+key).set( versityMap[versityName]);
+    }
+
+    function giveVersityPriority(versityName,priority) {
+        var time=new Date().getTime();
+        if(priority==undefined)
+            priority=1;
+        versityMap[versityName].priority=priority;
         var key=versityNameToKey[versityName];
         database.ref().child('versity/'+key).set( versityMap[versityName]);
     }
